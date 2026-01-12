@@ -1,5 +1,12 @@
 # PairDrop-Rust
 
+> **Modified Version Notice (GPLv3 §5a)**
+> This is a modified version of [PairDrop](https://github.com/schlagmichdoch/PairDrop).
+> Modification: Complete backend rewrite from Node.js to Rust (Axum framework).
+> Initial modification date: January 2026.
+> Original authors: [schlagmichdoch](https://github.com/schlagmichdoch) and contributors.
+> See [NOTICE](NOTICE) for full attribution.
+
 A Rust rewrite of [PairDrop](https://github.com/schlagmichdoch/PairDrop) backend using the Axum framework.
 
 **Demo: [pairdrop-rust.app.cosformula.org](https://pairdrop-rust.app.cosformula.org/)**
@@ -71,6 +78,13 @@ docker build --platform linux/amd64 -f server-rust/Dockerfile -t pairdrop-rust .
 # Run
 docker run -d -p 3000:3000 pairdrop-rust
 ```
+
+### Source Code for Docker Images (GPLv3 §6)
+
+| Docker Image Tag | Source Code |
+|------------------|-------------|
+| `ghcr.io/cosformula/pairdrop-rust:latest` | [main branch](https://github.com/cosformula/pairdrop-rust) |
+| `ghcr.io/cosformula/pairdrop-rust:vX.Y.Z` | [Tag vX.Y.Z](https://github.com/cosformula/pairdrop-rust/releases) |
 
 ## Deployment
 

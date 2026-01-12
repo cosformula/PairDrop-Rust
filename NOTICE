@@ -1,0 +1,51 @@
+PairDrop-Rust
+Copyright (C) 2024 cosformula
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+================================================================================
+ORIGINAL WORK ATTRIBUTION
+================================================================================
+
+This project is a modified version of PairDrop.
+
+Original Project: PairDrop
+Repository: https://github.com/schlagmichdoch/PairDrop
+Original Author: schlagmichdoch and contributors
+Original License: GPL-3.0
+
+PairDrop itself is based on Snapdrop:
+Repository: https://github.com/RobinLinus/snapdrop
+Original Author: Robin Linus
+Original License: GPL-3.0
+
+================================================================================
+MODIFICATIONS
+================================================================================
+
+January 2026 - Initial Rust Backend Rewrite
+- Complete rewrite of the backend from Node.js to Rust
+- Uses Axum web framework instead of Express.js
+- Implements WebSocket signaling server in Rust
+- Maintains full compatibility with original frontend
+- Significantly reduced memory footprint (~2MB vs ~60MB)
+
+The frontend code (public/) remains from the original PairDrop project
+with minimal modifications.
+
+================================================================================
+CORRESPONDING SOURCE
+================================================================================
+
+The source code for this project is available at:
+https://github.com/cosformula/pairdrop-rust
+
+For Docker image releases, the corresponding source code can be found at
+the same repository with matching version tags.
+
+Example:
+  Docker image: ghcr.io/cosformula/pairdrop-rust:v1.11.2
+  Source code:  https://github.com/cosformula/pairdrop-rust/tree/v1.11.2
