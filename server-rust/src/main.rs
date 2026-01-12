@@ -119,7 +119,18 @@ async fn main() {
 /// Build the application router
 fn build_router(state: AppState, config: &AppConfig) -> Router {
     // Determine public directory path
-    let public_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../public");
+    // Check for PUBLIC_DIR env var first, then try relative paths
+    let public_path = std::env::var("PUBLIC_DIR")
+        .map(PathBuf::from)
+        .unwrap_or_else(|_| {
+            // Try ./public first (for Docker), then ../public (for dev)
+            let docker_path = PathBuf::from("./public");
+            if docker_path.exists() {
+                docker_path
+            } else {
+                PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../public")
+            }
+        });
 
     let mut router = Router::new()
         // WebSocket endpoint
