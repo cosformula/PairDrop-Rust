@@ -1,36 +1,38 @@
 # PairDrop-Rust
 
-[PairDrop](https://github.com/schlagmichdoch/PairDrop) 的 Rust 后端重写版本，使用 Axum 框架。
+A Rust rewrite of [PairDrop](https://github.com/schlagmichdoch/PairDrop) backend using the Axum framework.
 
-## 为什么用 Rust？
+**Demo: [pairdrop-rust.app.cosformula.org](https://pairdrop-rust.app.cosformula.org/)**
+
+## Why Rust?
 
 | | Node.js | Rust |
 |---|---------|------|
-| 运行时内存 | ~60MB | ~2MB |
-| 二进制大小 | 需要 Node.js 运行时 | 单个 ~5MB 二进制 |
-| 启动时间 | 较慢 | 即时 |
+| Runtime Memory | ~60MB | ~2MB |
+| Binary Size | Requires Node.js runtime | Single ~5MB binary |
+| Startup Time | Slow | Instant |
 
-## 功能
+## Features
 
-- ✅ 完全兼容原版前端
-- ✅ WebSocket 信令服务器
-- ✅ IP 自动发现（同网络设备互相发现）
-- ✅ 设备配对（6位配对码）
-- ✅ 公开房间（5字母房间码）
-- ✅ WebRTC 信令转发
-- ✅ WebSocket 回退（可选，用于 VPN 环境）
-- ✅ 速率限制
-- ✅ IPv6 支持
+- ✅ Fully compatible with original frontend
+- ✅ WebSocket signaling server
+- ✅ Auto-discovery (devices on same network)
+- ✅ Device pairing (6-digit code)
+- ✅ Public rooms (5-letter room code)
+- ✅ WebRTC signaling relay
+- ✅ WebSocket fallback (optional, for VPN environments)
+- ✅ Rate limiting
+- ✅ IPv6 support
 
-## 快速开始
+## Quick Start
 
-### Docker (推荐)
+### Docker (Recommended)
 
 ```bash
 docker run -d -p 3000:3000 ghcr.io/cosformula/pairdrop-rust:latest
 ```
 
-### 从源码构建
+### Build from Source
 
 ```bash
 cd server-rust
@@ -38,21 +40,21 @@ cargo build --release
 ./target/release/pairdrop-server
 ```
 
-## 配置选项
+## Configuration
 
 ```bash
-# 命令行参数
+# Command line options
 pairdrop-server [OPTIONS]
 
 Options:
-  -p, --port <PORT>          端口 [默认: 3000]
-      --ws-fallback          启用 WebSocket 回退
-      --rate-limit <N>       启用速率限制
-      --localhost-only       仅监听本地
-      --debug-mode           调试模式
-      --ipv6-localize <N>    IPv6 分段数 (1-7)
+  -p, --port <PORT>          Port [default: 3000]
+      --ws-fallback          Enable WebSocket fallback
+      --rate-limit <N>       Enable rate limiting
+      --localhost-only       Listen on localhost only
+      --debug-mode           Enable debug mode
+      --ipv6-localize <N>    IPv6 segments (1-7)
 
-# 环境变量
+# Environment variables
 PORT=3000
 WS_FALLBACK=false
 RATE_LIMIT=5
@@ -60,28 +62,28 @@ DEBUG_MODE=false
 IPV6_LOCALIZE=4
 ```
 
-## Docker 构建
+## Docker Build
 
 ```bash
-# 构建
+# Build
 docker build --platform linux/amd64 -f server-rust/Dockerfile -t pairdrop-rust .
 
-# 运行
+# Run
 docker run -d -p 3000:3000 pairdrop-rust
 ```
 
-## 部署
+## Deployment
 
-支持部署到：
+Supports deployment to:
 - Coolify
 - Fly.io
 - Railway
-- 任何支持 Docker 的平台
+- Any Docker-compatible platform
 
-## 致谢
+## Credits
 
-- [PairDrop](https://github.com/schlagmichdoch/PairDrop) - 原版项目
-- [Snapdrop](https://github.com/RobinLinus/snapdrop) - 最初的灵感来源
+- [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Original project
+- [Snapdrop](https://github.com/RobinLinus/snapdrop) - Original inspiration
 
 ## License
 
